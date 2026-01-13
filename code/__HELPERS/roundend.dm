@@ -302,6 +302,7 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 
 	sleep(5 SECONDS)
 	ready_for_reboot = TRUE
+	SSplexora.roundended() // IRIS EDIT ADDITION
 	standard_reboot()
 
 /datum/controller/subsystem/ticker/proc/TriggerRoundEndTgsEvent()

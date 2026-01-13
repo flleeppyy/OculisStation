@@ -322,6 +322,7 @@ ADMIN_VERB(cmd_admin_pm_panel, R_NONE, "Admin PM", "Show a list of clients to PM
 		var/category = "Reply: [ckey]"
 		if(new_admin_help)
 			category = "#[new_help_id] [category]"
+			SSplexora.aticket_pm(new_admin_help, raw_send_message) // IRIS EDIT ADDITION
 
 		send2adminchat(category, raw_message)
 		return TRUE
@@ -391,6 +392,14 @@ ADMIN_VERB(cmd_admin_pm_panel, R_NONE, "Admin PM", "Show a list of clients to PM
 			link_to_us,
 			span_linkify(send_message),
 		)
+		// IRIS EDIT ADDITION START - Plexora
+		if (!ticket || recipient_ticket)
+			var/datum/admin_help = GLOB.ahelp_tickets.TicketByID(recipient_ticket_id)
+
+			SSplexora.aticket_pm(admin_help, raw_send_message, src.ckey)
+		else
+			SSplexora.aticket_pm(ticket || recipient_ticket, raw_send_message, src.ckey)
+		// IRIS EDIT ADDITION END - Plexora
 
 		to_chat(src,
 			type = MESSAGE_TYPE_ADMINPM,
@@ -479,6 +488,8 @@ ADMIN_VERB(cmd_admin_pm_panel, R_NONE, "Admin PM", "Show a list of clients to PM
 				log_in_blackbox = FALSE,
 				player_message = player_interaction_message)
 
+		if (ticket || recipient_ticket) SSplexora.aticket_pm(ticket || recipient_ticket, raw_send_message, src.ckey) // IRIS EDIT ADDITION
+
 		SSblackbox.LogAhelp(ticket_id, "Reply", send_message, recip_ckey, our_ckey)
 		return TRUE
 
@@ -496,6 +507,7 @@ ADMIN_VERB(cmd_admin_pm_panel, R_NONE, "Admin PM", "Show a list of clients to PM
 
 	ticket.reply_to_admins_notification(send_message)
 	SSblackbox.LogAhelp(ticket_id, "Reply", send_message, recip_ckey, our_ckey)
+	SSplexora.aticket_pm(ticket, raw_send_message) // IRIS EDIT ADDITION
 
 	return TRUE
 

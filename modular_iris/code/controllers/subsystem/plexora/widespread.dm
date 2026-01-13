@@ -213,6 +213,12 @@
 
 // Begin Mentor tickets
 
+/**
+ * Note: For the mean time, this will be disabled until mentor tickets become a subset of admin tickets,
+ * or something similar that allows us to track tickets by ID. - Chen
+ */
+
+/*
 /datum/controller/subsystem/plexora/proc/mticket_new(datum/request/ticket)
 	if (!enabled) return
 	http_fireandforget("mtickets/new", list(
@@ -241,3 +247,4 @@
 		"message" = msg,
 	))
 
+*/
