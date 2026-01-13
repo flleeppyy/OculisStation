@@ -97,7 +97,7 @@
 			plexora_poll_result["polling_response"]
 		)
 
-	discord_invite = CONFIG_GET(string/discordurl)
+	discord_invite = CONFIG_GET(string/discord_link)
 
 /datum/discord_verification/ui_state(mob/user)
 	return GLOB.always_state

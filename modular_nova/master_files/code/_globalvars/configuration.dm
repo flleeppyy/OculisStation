@@ -70,10 +70,6 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 // Are borgs/silicons blacklisted from entering the gateway
 /datum/config_entry/flag/borg_gateway_blacklist
 
-
-/datum/config_entry/string/discordurl
-	default = "https://discord.monkestation.com/"
-
 /datum/config_entry/flag/plexora_enabled
 
 /datum/config_entry/string/plexora_url
