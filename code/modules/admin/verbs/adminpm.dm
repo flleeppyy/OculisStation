@@ -291,7 +291,7 @@ ADMIN_VERB(cmd_admin_pm_panel, R_NONE, "Admin PM", "Show a list of clients to PM
 	if(IsAdminAdvancedProcCall())
 		return FALSE
 
-	var/send_message = raw_send_message // monkestation edit: PLEXORA
+	var/send_message = raw_send_message // IRIS EDIT ADDITION
 	send_message = adminpm_filter_text(ambiguious_recipient, send_message)
 	if(!send_message)
 		return null
