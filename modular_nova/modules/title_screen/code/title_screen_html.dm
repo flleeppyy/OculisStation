@@ -180,78 +180,78 @@ GLOBAL_LIST_EMPTY(startup_messages)
 		<script language="JavaScript">
 			// Parallax background ported from https://github.com/AffectedArc07/SS13WebMap/tree/archived with some hefty changes
 			(function () {
-        const layer1 = document.getElementById("layer1");
-        const layer2 = document.getElementById("layer2");
-        const layer3 = document.getElementById("layer3");
+				const layer1 = document.getElementById("layer1");
+				const layer2 = document.getElementById("layer2");
+				const layer3 = document.getElementById("layer3");
 
-        let motionOK = true;
+				let motionOK = true;
 
-        const mediaQuery = window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        );
+				const mediaQuery = window.matchMedia(
+					"(prefers-reduced-motion: reduce)"
+				);
 
-        function handleMotionChange(e) {
-          motionOK = !e.matches;
-          if (!motionOK) stopFTL();
-        }
+				function handleMotionChange(e) {
+					motionOK = !e.matches;
+					if (!motionOK) stopFTL();
+				}
 
-        motionOK = !mediaQuery.matches;
-        mediaQuery.addEventListener("change", handleMotionChange);
+				motionOK = !mediaQuery.matches;
+				mediaQuery.addEventListener("change", handleMotionChange);
 
-        /**
-         * Initialize the parallax
-         * @param {'N'|'S'|'E'|'W'} dir
-         * @param {number} speedmodif
-         */
-        function initFTL(dir = "E", speedmodif = 0) {
-          if (!layer1 || !layer2 || !layer3) {
-            console.error("Layers not found");
-            return;
-          }
+				/**
+				 * Initialize the parallax
+				 * @param {'N'|'S'|'E'|'W'} dir
+				 * @param {number} speedmodif
+				 */
+				function initFTL(dir = "E", speedmodif = 0) {
+					if (!layer1 || !layer2 || !layer3) {
+						console.error("Layers not found");
+						return;
+					}
 
-          if (!motionOK) {
-            stopFTL();
-            return;
-          }
+					if (!motionOK) {
+						stopFTL();
+						return;
+					}
 
-          const speeds = {
-            l1: Math.max(80 + speedmodif, 1),
-            l2: Math.max(40 + speedmodif, 1),
-            l3: Math.max(20 + speedmodif, 1),
-          };
+					const speeds = {
+						l1: Math.max(80 + speedmodif, 1),
+						l2: Math.max(40 + speedmodif, 1),
+						l3: Math.max(20 + speedmodif, 1),
+					};
 
-          layer1.className = "layer1";
-          layer2.className = "layer2";
-          layer3.className = "layer3";
+					layer1.className = "layer1";
+					layer2.className = "layer2";
+					layer3.className = "layer3";
 
-          layer1.style.animationName = `loop_${dir}`;
-          layer2.style.animationName = `loop_${dir}`;
-          layer3.style.animationName = `loop_${dir}`;
+					layer1.style.animationName = `loop_${dir}`;
+					layer2.style.animationName = `loop_${dir}`;
+					layer3.style.animationName = `loop_${dir}`;
 
-          layer1.style.animationDuration = speeds.l1 + "s";
-          layer2.style.animationDuration = speeds.l2 + "s";
-          layer3.style.animationDuration = speeds.l3 + "s";
+					layer1.style.animationDuration = speeds.l1 + "s";
+					layer2.style.animationDuration = speeds.l2 + "s";
+					layer3.style.animationDuration = speeds.l3 + "s";
 
-          console.debug("FTL Translation successful");
-        }
+					console.debug("FTL Translation successful");
+				}
 
-        function stopFTL() {
-          if (layer1) layer1.style.animationName = "none";
-          if (layer2) layer2.style.animationName = "none";
-          if (layer3) layer3.style.animationName = "none";
-        }
+				function stopFTL() {
+					if (layer1) layer1.style.animationName = "none";
+					if (layer2) layer2.style.animationName = "none";
+					if (layer3) layer3.style.animationName = "none";
+				}
 
-        const autoInit = true;
-        const direction = "E";
-        const speedModifier = 0;
+				const autoInit = true;
+				const direction = "E";
+				const speedModifier = 0;
 
-        if (autoInit && motionOK) {
-          initFTL(direction, speedModifier);
-        }
+				if (autoInit && motionOK) {
+					initFTL(direction, speedModifier);
+				}
 
-        window.initFTL = initFTL;
-        window.stopFTL = stopFTL;
-      })();
+				window.initFTL = initFTL;
+				window.stopFTL = stopFTL;
+			})();
 		</script>
 		"}
 	// IRIS EDIT ADDITION END
