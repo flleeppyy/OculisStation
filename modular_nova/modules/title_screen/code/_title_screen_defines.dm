@@ -6,8 +6,10 @@
 #define TITLE_PROGRESS_CACHE_FILE "data/progress_cache.json"
 #define TITLE_PROGRESS_CACHE_VERSION "2"
 
+// When changing the HTML here, run ./sync_define_to_config.py to update the config file.
+// Modularization should not be respected here, its unneccessary complexity for html code.
 #define DEFAULT_TITLE_HTML {"
-	<html>
+  <html>
 		<head>
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -116,6 +118,7 @@
 					border-radius: 4px;
 					box-shadow: 2px 2px #333, inset 1px 1px #333;
 					/* TODO: Have a pick() call for backgrounds */
+					/*background: linear-gradient(to bottom, rgba(110, 45, 136, 0.6), rgba(120, 68, 204, 0.6), rgba(68, 68, 204, 0.6), rgba(68, 68, 204, 0.6), rgba(0, 0, 102, 0.6));*/
 					/*background: linear-gradient(to bottom, rgba(120, 68, 204, 0.6), rgba(68, 68, 204, 0.6), rgba(68, 68, 204, 0.6), rgba(0, 0, 102, 0.6));*/
 					/*background: linear-gradient(to bottom, rgba(214, 44, 183, 0.58), rgba(208, 50, 182, 0.55), rgba(191, 52, 173, 0.52), rgba(61, 0, 61, 0.46));*/
 					/*background: linear-gradient(180deg, #D52D0099, #EF762799, #FF9A5699, #D162A499, #B5569099, #A3026255);*/
@@ -286,7 +289,6 @@
 					background-repeat: repeat;
 					animation-timing-function: linear;
 					animation-iteration-count: infinite;
-					z-index: 5;
 					mix-blend-mode: screen;
 					zoom: 200%;
 					image-rendering: crisp-edges;
@@ -313,5 +315,4 @@
 				}
 			</style>
 		</head>
-		<body>
 			"}
