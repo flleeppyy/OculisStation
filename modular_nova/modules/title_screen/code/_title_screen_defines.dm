@@ -9,7 +9,7 @@
 // When changing the HTML here, run ./sync_define_to_config.py to update the config file.
 // Modularization should not be respected here, its unneccessary complexity for html code.
 #define DEFAULT_TITLE_HTML {"
-  <html>
+	<html>
 		<head>
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
