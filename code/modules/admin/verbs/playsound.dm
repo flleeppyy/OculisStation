@@ -106,10 +106,7 @@ GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 		if (duration > 10 MINUTES)
 			if((tgui_alert(user, "This song is over 10 minutes long. Are you sure you want to play it?", "Length Warning", list("No", "Yes", "Cancel")) != "Yes"))
 				return
-		// IRIS EDIT - ORIGINAL: 		var/include_song_data = tgui_alert(user, "Show the title of and link to this song to the players?\n[title]", "Song Info", list("Yes", "No", "Cancel"))
-		// switch(include_song_data)
-		//IRIS EDIT CHANGE - Allow custom title input
-		var/include_song_data = tgui_input_list(user, "Show the title of and link to this song to the players?\n[title]", "Show Info?", list("Yes", "No", "Custom Title", "Cancel"))
+		var/include_song_data = tgui_input_list(user, "Show the title of and link to this song to the players?\n[title]", "Show Info?", list("Yes", "No", "Custom Title", "Cancel")) // IRIS EDIT, ORIGINAL: var/include_song_data = tgui_alert(user, "Show the title of and link to this song to the players?\n[title]", "Song Info", list("Yes", "No", "Cancel"))
 		switch(include_song_data)
 			if("Yes")
 				music_extra_data["title"] = data["title"]
