@@ -11,13 +11,12 @@
 
 // IRIS EDIT START - PURPLEIFIES
 :root {
-  --color-primary: hsl(322, 40.5%, 43.8%);
+  --color-primary: hsl(258, 42%, 44%);
 }
 
 :root {
-  --color-label: hsl(333, 14%, 43%);
+  --color-label: hsl(268, 14%, 43%);
 }
-
 // IRIS EDIT END - I COULDA DONE THIS BETTER BUT WHO GIVES A FUCK!
 
 // Mappings of color names
@@ -44,7 +43,7 @@ $_gen_map: (
   'average': var(--color-average),
   'bad': var(--color-bad),
   'label': var(--color-label),
-  'primary': var(--color-primary),
+  'primary': var(--color-violet), // IRIS EDIT ADDITION
 );
 $low-contrast-color-map: ('yellow', 'white');
 
