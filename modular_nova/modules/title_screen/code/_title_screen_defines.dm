@@ -1,6 +1,6 @@
 #define DEFAULT_TITLE_MAP_LOADTIME (150 SECONDS)
 
-#define DEFAULT_TITLE_SCREEN_IMAGE 'modular_iris/modules/title_screen/icons/iris_title_screen.png'
+#define DEFAULT_TITLE_SCREEN_IMAGE 'modular_iris/modules/title_screen/icons/oculis_title_screen.png'
 #define DEFAULT_TITLE_LOADING_SCREEN 'modular_nova/modules/title_screen/icons/loading_screen.gif'
 
 #define TITLE_PROGRESS_CACHE_FILE "data/progress_cache.json"
@@ -16,14 +16,18 @@
 					font-family: "Fixedsys";
 					src: url("FixedsysExcelsior3.01Regular.ttf");
 				}
+				* {
+					-ms-user-select: none;
+					user-select: none;
+				}
 				body,
 				html {
 					margin: 0;
 					overflow: hidden;
 					text-align: center;
 					background-color: black;
-					padding-top: 5vmin;
 					-ms-user-select: none;
+					user-select: none;
 					cursor: default;
 				}
 
@@ -107,11 +111,15 @@
 					top: calc(50% + 22.5vmin);
 					left:50%;
 					transform: translate(-50%, -50%);
-					z-index: 1;
+					z-index: 5;
 					border: 2px solid white;
 					border-radius: 4px;
 					box-shadow: 2px 2px #333, inset 1px 1px #333;
-					background: linear-gradient(to bottom, rgba(120, 68, 204, 0.6), rgba(68, 68, 204, 0.6), rgba(68, 68, 204, 0.6), rgba(0, 0, 102, 0.6));
+					/* TODO: Have a pick() call for backgrounds */
+					/*background: linear-gradient(to bottom, rgba(120, 68, 204, 0.6), rgba(68, 68, 204, 0.6), rgba(68, 68, 204, 0.6), rgba(0, 0, 102, 0.6));*/
+					/*background: linear-gradient(to bottom, rgba(214, 44, 183, 0.58), rgba(208, 50, 182, 0.55), rgba(191, 52, 173, 0.52), rgba(61, 0, 61, 0.46));*/
+					/*background: linear-gradient(180deg, #D52D0099, #EF762799, #FF9A5699, #D162A499, #B5569099, #A3026255);*/
+					background: linear-gradient(180deg, #ff008094, #8c4799b5, #0032a0a8);
 					opacity: 95%;
 					padding: 1em;
 				}
@@ -204,7 +212,7 @@
 					top: calc(50% - 10vmin);
 					left:50%;
 					transform: translate(-50%, -50%);
-					z-index: 1;
+					z-index: 6;
 				}
 
 				.menu_notice {
@@ -228,6 +236,80 @@
 
 				.checked {
 					color: #4F4;
+				}
+			</style>
+			<style>
+				/* This is for the space parallax */
+				@keyframes loop_N {
+					from {
+						background-position: 0 0;
+					}
+					to {
+						background-position: 0 960px;
+					}
+				}
+				@keyframes loop_S {
+					from {
+						background-position: 0 0;
+					}
+					to {
+						background-position: 0 -960px;
+					}
+				}
+				@keyframes loop_E {
+					from {
+						background-position: 0 0;
+					}
+					to {
+						background-position: -960px 0;
+					}
+				}
+				@keyframes loop_W {
+					from {
+						background-position: 0 0;
+					}
+					to {
+						background-position: 960px 0;
+					}
+				}
+				.layer1,
+				.layer2,
+				.layer3,
+				.TG_layer1,
+				.TG_layer2,
+				.TG_layer3 {
+					position: fixed;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					background-repeat: repeat;
+					animation-timing-function: linear;
+					animation-iteration-count: infinite;
+					z-index: 5;
+					mix-blend-mode: screen;
+					zoom: 200%;
+					image-rendering: crisp-edges;
+					image-rendering: pixelated;
+					filter: hue-rotate(69deg) saturate(2);
+				}
+				.layer1 {
+					background-image: url("/layer1.png");
+				}
+				.layer2 {
+					background-image: url("/layer2.png");
+				}
+				.layer3 {
+					background-image: url("/layer3.png");
+				}
+				.TG_layer1 {
+					background-image: url("/layer1TG.png");
+				}
+				.TG_layer2 {
+					background-image: url("/layer2TG.png");
+				}
+				.TG_layer3 {
+					background-image: url("/layer3TG.png");
 				}
 			</style>
 		</head>
